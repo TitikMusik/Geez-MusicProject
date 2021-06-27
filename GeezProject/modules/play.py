@@ -203,7 +203,6 @@ async def ee(client, message):
 
 
 @Client.on_message(filters.command("player") & filters.group & ~filters.edited)
-@authorized_users_only
 async def settings(client, message):
     if message.chat.id in DISABLED_GROUPS:
         await message.reply("**Music Player dimatikan**")
@@ -227,7 +226,6 @@ async def settings(client, message):
 @Client.on_message(
     filters.command("musicplayer") & ~filters.edited & ~filters.bot & ~filters.private
 )
-@authorized_users_only
 async def hfmm(_, message):
     global DISABLED_GROUPS
     try:
